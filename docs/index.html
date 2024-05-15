@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Factorio ModPack generator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
+      integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+  <body>
+    <div class="ui container">
+      <h1 class="ui header">Factorio ModPack Generator</h1>
+        <!-- 英語の説明アコーディオン -->
+        <div class="ui styled fluid accordion">
+          <div class="title">
+            <i class="dropdown icon"></i>
+            Instructions (English)
+          </div>
+          <div class="content">
+            <p>This is a tool to easily generate a ModPack for Factorio. It packages the mods enabled in your latest save data into a zip file.</p>
+            <p>To generate the ModPack, you will need the `mod-list.json` file, which is located in the mods directory. If you are unsure where the mods directory is, please refer to `Location of mods directory`.
+              Here are the specific steps for using the tool:</p>
+            <div class="ui ordered list">
+              <div class="item">
+                Enter your name or handle in the `Please enter your name (or handle)` field.
+              </div>
+              <div class="item">
+                Open the `mod-list.json` file located in the mods directory, copy its contents, and paste them into the `Please enter your mod-list.json` field.
+              </div>
+              <div class="item">
+                Press the `Process` button to download the zip file.
+              </div>
+              <div class="item">
+                Move the downloaded zip file to the mods directory.
+              </div>
+              <div class="item">
+                When you start Factorio, the created ModPack will be reflected. The name of the mod will be `modpack-by-{your name}`.
+              </div>
+            </div>
+          </div>
+        </div>
+        
+    
+        <!-- 日本語の説明アコーディオン -->
+        <div class="ui styled fluid accordion">
+          <div class="title">
+            <i class="dropdown icon"></i>
+            説明 (日本語)
+          </div>
+          <div class="content">
+            <p>これはFactorioのModPackを簡単に生成するツールです。最新のセーブデータで有効化されているMODをModPackとしてパッケージングしてzipファイルを作成します。</p>
+              <p>生成には`mod-list.json`が必要になりますが、これはmodsディレクトリの中にあります。modsディレクトリの場所がわからない方は`Location of mods directory`を参照してください。
+              具体的な使用方法は以下のとおりです。</p>
+              <div class="ui ordered list">
+                <div class="item">
+                  `Please enter your name (or handle)`にあなたの名前もしくはハンドルネームを入力します
+                </div>
+                <div class="item">
+                  modsディレクトリの中にある`mod-list.json`を開いて内容をコピーし、`Please enter your mod-list.json`にペーストします。
+                </div>
+                <div class="item">
+                  `Process`のボタンを押すとzipファイルがダウンロードできます。
+                </div>
+                <div class="item">
+                  ダウンロードしたzipファイルをmodsディレクトリの中に移動します。
+                </div>
+                <div class="item">
+                  Factorioを起動すると作成したModPackが反映されます。Modの名前は`modpack-by-{あなたの名前}`となります。
+                </div>
+              </div>
+          </div>
+        </div>
+      <!-- アコーディオンを追加 -->
+      <div class="ui styled fluid accordion">
+        <div class="title">
+          <i class="dropdown icon"></i>
+          Location of mods_directory
+        </div>
+        <div class="content">
+          <ul>
+            <li>Windows: <code>C:\Users\[Your Username]\AppData\Roaming\Factorio\mods</code></li>
+            <li>macOS: <code>/Users/[Your Username]/Library/Application Support/factorio/mods</code></li>
+            <li>Linux: <code>/home/[Your Username]/.factorio/mods</code></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="ui form">
+        <div class="field">
+          <label>Please enter your name (or handle)</label>
+          <input type="text" name="author" id="author" />
+        </div>
+        <div class="field">
+          <label>Please enter your mod-list.json</label>
+          <textarea
+            name="userInput"
+            id="userInput"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
+      </div>
+      <button id="processButton" class="ui button primary">Process</button>
+      <p id="output"></p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
+      integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script>
+      $('.ui.accordion').accordion();
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
